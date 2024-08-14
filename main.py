@@ -13,7 +13,7 @@ import src.part5_scatter as part5
 def main():
     ##  PART 1: ETL  ##
     # ETL the datasets into dataframes
-    pred_universe, arrest_events, charge_counts, charge_counts_by_offense = part1.extract_transform()
+    pred_universe, arrest_events, charge_counts, charge_counts_by_offense, merged_df, felony_charge = part1.extract_transform()
     
     ##  PART 2: PLOT EXAMPLES  ##
     # Apply plot theme
@@ -26,25 +26,19 @@ def main():
     part2.scatterplot(pred_universe)
 
     ##  PART 3: BAR PLOTS AND HISTOGRAMS  ##
-    # 1
-
-    # 2
-
-    # 3
-
-    # 4
+    part3.plot_fta_bar(pred_universe)
+    part3.plot_fta_bar_hue_by_sex(pred_universe)
+    part3.plot_age_histogram(pred_universe)
+    part3.plot_age_histogram_binned(pred_universe)
 
     ##  PART 4: CATEGORICAL PLOTS  ##
-    # 1
-    
-    # 2
-
-    # 3
+    part4.plot_felony_rearrest_predictions(merged_df)
+    part4.plot_nonfelony_rearrest_predictions(merged_df)
+    part4.plot_felony_rearrest_predictions_hue_actual(merged_df)
 
     ##  PART 5: SCATTERPLOTS  ##
-    # 1
-    
-    # 2
+    part5.felony_nonfelony_scatter(merged_df)
+    part5.felony_prediction_vs_actual_scatter(merged_df)
 
 
 if __name__ == "__main__":
