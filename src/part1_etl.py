@@ -3,8 +3,20 @@ PART 1: ETL
 - This code sets up the datasets for Problem Set 4
 - NOTE: You will update this code for PART 4: CATEGORICAL PLOTS
 '''
-
+import os
 import pandas as pd
+
+def create_directories(directories):
+    """
+    Creates the necessary directories for storing plots and data.
+    Args:
+        directories (list of str): A list of directory paths to create.
+    """
+
+
+    for directory in directories:
+        os.makedirs(directory, exist_ok=True)
+
 
 def extract_transform():
     """

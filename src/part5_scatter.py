@@ -4,18 +4,12 @@ PART 5: SCATTER PLOTS
 - Update main() in main.py to generate the plots and print statments when called
 - All plots should be output as PNG files to `data/part5_plots`
 '''
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 # 1. Using lmplot, create a scatter plot where the x-axis is the prediction for felony and the y-axis the is prediction for a nonfelony, and hue this by whether the current charge is a felony. 
 # 
 # In a print statement, answer the following question: What can you say about the group of dots on the right side of the plot?
-
-
-# 2. Create a scatterplot where the x-axis is prediction for felony rearrest and the y-axis is whether someone was actually rearrested.
-# 
-# In a print statement, answer the following question: Would you say based off of this plot if the model is calibrated or not?
-
-import seaborn as sns
-import matplotlib.pyplot as plt
 
 def felony_nonfelony_scatter(merged_df):
     """
@@ -30,7 +24,12 @@ def felony_nonfelony_scatter(merged_df):
     plt.savefig('./data/part5_plots/felony_nonfelony_scatter.png', bbox_inches = 'tight')
     plt.close()
 
-    print("")
+    print("the group of dots on the right side of the plot represent individuals with a high probability of felony rearrest.")
+
+
+# 2. Create a scatterplot where the x-axis is prediction for felony rearrest and the y-axis is whether someone was actually rearrested.
+# 
+# In a print statement, answer the following question: Would you say based off of this plot if the model is calibrated or not?
 
 def felony_prediction_vs_actual_scatter(merged_df):
     """
@@ -45,5 +44,5 @@ def felony_prediction_vs_actual_scatter(merged_df):
     plt.savefig('./data/part5_plots/felony_prediction_vs_actual_scatter.png', bbox_inches='tight')
     plt.close()
 
-    print("")
+    print("based on the plot, the model may not be well calibrated because the points do not seem to align with the expected outcomes.")
 
